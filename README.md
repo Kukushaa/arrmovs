@@ -3,7 +3,7 @@
 ![arrmovs_logo](https://user-images.githubusercontent.com/95010815/174456474-7a3acf09-91e3-44a1-bf55-91cb3b0f9c11.png)
 
 <p> <i> <b> Python Module For Converting INT to Array </i> </b> </p>
-<p> This is module, that can help you convert your INT num into Array (and on the contrary) <br>
+<p> There is 18 modules, that can help you convert your INT num into Array (and on the contrary) <br>
 
 <b> Enjoy <b> </p>
 <br>
