@@ -76,7 +76,7 @@ num = arr.ArrToInt(myArr)
 ```
   <br>
 
-<h1 align='left' > Random Generation Modules </h1>
+<h1 align='left' > Random Generation Module </h1>
 
 Let's generate random INT num and convert it into Array. <br>
 We need numbers from which will be starting creating and ending (fr/to). <br>
