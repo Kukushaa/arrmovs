@@ -5,8 +5,6 @@
 <p> <i> <b> Python Module For Converting INT to Array </i> </b> </p>
 <p> This is module, that can help you convert your INT num into Array (and on the contrary) <br>
 
-There is 18 modules (main) that will help you <br>
-
 <b> Enjoy <b> </p>
 <br>
 
