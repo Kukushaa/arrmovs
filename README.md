@@ -44,11 +44,7 @@ If something went wrong, try to install it with:
 ```python
 pip3 install arrmovs
 ```
-
-Or
-```python
-pip install arrmovs==0.0.1
-```
+  
 <br>
 
 <h1 align='left' > Main Modules </h1>
