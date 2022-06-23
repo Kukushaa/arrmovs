@@ -1,7 +1,7 @@
 """
-This is module, that can help you convert your INT num into Array (and on the contrary)
+This is a module, that can help you convert your INT num into an Array (and on the contrary)
 
-There is 18 modules (main)
+There are 20 modules (main)
 
 Enjoy
 
@@ -11,12 +11,31 @@ Instagram: https://www.instagram.com/nikaa_beroo
 GitHub: https://github.com/Kukushaa
 StackOverFlow: https://stackoverflow.com/users/19145314/kukushaa
 
-Telegarm: @raigetsu
+Telegram: @raigetsu
 ----------------------------------------------------------------------------------------------
+0.0.2 Version Changes:
+
+TecnicalImprovements():
+    If your Array starts with more than one zero and you will put it into a module, the first zeroes will automatically be deleted
+
+ModuleChangeName():
+
+    1. ArrToIntBiggest —> ArrBiggestNum
+    2. ArrToIntSmall —> ArrSmallestNum
+    3. ArrToIntCount --> ArrNumCount
+
+    4. IntToArrYourNum --> IntNumCount
+    5. IntToArrBiggest —> IntBiggestNum
+    6. IntToArrSmallest —> IntSmallestNum
+
+NewModules():
+    1. ArrNumCount() --> count in your Array, your number
+    2. RandomArr() --> Generate's random Array, in len of your first written num
 
 ----------------------------------------------------------------------------------------------
 NIKA BERIDZE 2022®
 KUKUSHAA®
+BATUMI®
 ----------------------------------------------------------------------------------------------
 """
 
@@ -42,12 +61,19 @@ class ListNotList(ValueError):
 class ModuleSetError(ValueError):
     pass
 
-def ListErr(value):
+def ListErr(value: list):
+    value.sort()
+
+    while value[0] == 0:
+        del value[0]
+
     if type(value) != list:
         raise NumNotInt("Enter only List")
 
     else:
         pass
+
+    return 0
 
 def NumError(value):
     if type(value) != int:
@@ -55,6 +81,20 @@ def NumError(value):
 
     else:
         pass
+
+    return 0
+
+def ToBigFrom(fr: int, to: int):
+    if fr > to:
+        raise SyntaxError(f"{fr} is bigger than {to}")
+
+    if fr == 0:
+        raise NoZeroEntry("Invaid Entry: 0")
+
+    else:
+        pass
+
+    return 0
 
 def ModuleSetError(value):
     raise ModuleSetError("Only list or INT")
@@ -65,17 +105,17 @@ def ModuleSetError(value):
 
 def IntToArr(num: int):
     """
-    With this module, you can conver your INT num to Array
+        With this module, you can convert your INT num to Array
 
-    examle:
-        import arrmov as arr
+        examle:
+            import arrmov as arr
 
-        num = 4395
-        print(arr.IntToArr(num))
+            num = 4395
+            print(arr.IntToArr(num))
 
-    
-    Output:
-        [4, 3, 9, 5]
+
+        Output:
+            [4, 3, 9, 5]
 
     """
 
@@ -92,19 +132,20 @@ def IntToArr(num: int):
 
 def IntToArrSorted(num: int):
     """
-    With this module, you can conver your INT num to Array and Sort it.
+        With this module, you can convert your INT num to Array and Sort it.
 
-    examle:
-        import arrmov as arr
+        examle:
+            import arrmov as arr
 
-        num = 12345
-        print(arr.IntToArrSortedReverse(num))
+            num = 12345
+            print(arr.IntToArrSortedReverse(num))
 
 
-    Output:
-        [1, 2, 3, 4, 5]
+        Output:
+            [1, 2, 3, 4, 5]
 
     """
+
     NumError(num)
 
     split = [i for i in str(num)]
@@ -120,17 +161,17 @@ def IntToArrSorted(num: int):
 
 def IntToArrSortedReverse(num: int):
     """
-    With this module, you can conver your INT num to Array and Sort it Reversed.
+        With this module, you can convert your INT num to Array and Sort it Reverse.
 
-    examle:
-        import arrmov as arr
+        examle:
+            import arrmov as arr
 
-        num = 12345
-        print(arr.IntToArrSortedReverse(num))
+            num = 12345
+            print(arr.IntToArrSortedReverse(num))
 
-    
-    Output:
-        [5, 4, 3, 2, 1]
+
+        Output:
+            [5, 4, 3, 2, 1]
 
     """
 
@@ -149,17 +190,17 @@ def IntToArrSortedReverse(num: int):
 
 def IntToArrOdd(num: int):
     """
-    With this module, you can conver your INT num to Array and return only ODD nums.
+        With this module, you can convert your INT num to Array and return only ODD nums.
 
-    examle:
-        import arrmov as arr
+        examle:
+            import arrmov as arr
 
-        num = 1234554321
-        print(arr.IntToArrOdd(num))
+            num = 1234554321
+            print(arr.IntToArrOdd(num))
 
-    
-    Output:
-        [1, 3, 5, 5, 3, 1]
+
+        Output:
+            [1, 3, 5, 5, 3, 1]
 
     """
 
@@ -186,7 +227,7 @@ def IntToArrOdd(num: int):
 
 def IntToArrEven(num: int):
     """
-        With this module, you can conver your INT num to Array and return only EVEN nums.
+        With this module, you can convert your INT num to Array and return only EVEN nums.
 
         examle:
             import arrmov as arr
@@ -198,7 +239,7 @@ def IntToArrEven(num: int):
         Output:
             [2, 4, 6]
 
-        """
+    """
 
     NumError(num)
 
@@ -221,21 +262,22 @@ def IntToArrEven(num: int):
 
     return even
 
-def IntToArrBiggest(num: int):
+def IntBiggestNum(num: int):
     """
-        With this module, you return biggest num in your int (by converting into array).
+        With this module, you return the biggest num in your int (by converting it into an array).
 
         examle:
             import arrmov as arr
 
             num = 1234567
-            print(arr.IntToArrBiggest(num))
+            print(arr.IntBiggestNum(num))
 
 
         Output:
             7
 
-        """
+    """
+
     NumError(num)
 
     split = [i for i in str(num)]
@@ -258,21 +300,21 @@ def IntToArrBiggest(num: int):
 
     return biggest
 
-def IntToArrSmaller(num: int):
+def IntSmallestNum(num: int):
     """
-        With this module, you return Smallest num in your int (by converting into array).
+        With this module, you return the Smallest num in your int (by converting it into an array).
 
         examle:
             import arrmov as arr
 
             num = 012345
-            print(arr.IntToArr(num))
+            print(arr.IntSmallestNum(num))
 
 
         Output:
             0
 
-        """
+    """
 
     NumError(num)
 
@@ -298,7 +340,7 @@ def IntToArrSmaller(num: int):
 
 def IntToArrRandom(fr: int, to: int):
     """
-        With this module, you can generate random Array, from (fr) to int num you want (to)
+        With this module, you can generate a random Array, from (fr) to int num you want (to)
 
         examle:
             import arrmov as arr
@@ -309,11 +351,9 @@ def IntToArrRandom(fr: int, to: int):
         Output:
             [4, 3, 3]
 
-        """
-    if fr == 0:
-        raise NoZeroEntry("Invaid Entry: {g}".format(g = fr))
-    else:
-        pass
+    """
+
+    ToBigFrom(fr, to)
 
     num = ''
 
@@ -335,7 +375,7 @@ def IntToArrRandom(fr: int, to: int):
 
     return array
 
-def IntToArrYourNum(num: int, fig: int):
+def IntNumCount(num: int, fig: int):
     """
         With this module, you can return your amount of num (fig) in your int
 
@@ -343,13 +383,14 @@ def IntToArrYourNum(num: int, fig: int):
             import arrmov as arr
 
             num = 123125312
-            print(arr.IntToArrYourNum(num, 1))
+            print(arr.IntNumCount(num, 1))
 
 
         Output:
             3
 
-        """
+    """
+
     NumError(num)
 
     split = [i for i in str(num)]
@@ -363,7 +404,7 @@ def IntToArrYourNum(num: int, fig: int):
 
 def IntToArrFactorial(num: int):
     """
-        With this module, you can conver your INT num to Array and return every single nums factorial in this Array
+        With this module, you can convert your INT num to Array and return every single num factorial in this Array
 
         examle:
             import arrmov as arr
@@ -375,7 +416,8 @@ def IntToArrFactorial(num: int):
         Output:
             [24, 6, 362880, 120]
 
-        """
+    """
+
     NumError(num)
 
     split = [i for i in str(num)]
@@ -395,7 +437,7 @@ def IntToArrFactorial(num: int):
 
 def IntToArrFactorialNum(num: int, fact: int):
     """
-        With this module, you can conver your INT num to Array and return choosen num's factorial in this Array
+        With this module, you can convert your INT num to Array and return the chosen num's factorial in this Array
 
         examle:
             import arrmov as arr
@@ -407,7 +449,8 @@ def IntToArrFactorialNum(num: int, fact: int):
         Output:
             [24, 3, 9, 5]
 
-        """
+    """
+
     NumError(num)
 
     split = [i for i in str(num)]
@@ -430,7 +473,7 @@ def IntToArrFactorialNum(num: int, fact: int):
 
 def IntToArrFactorialRand(fr: int, to: int):
     """
-        With this module, you can generate random Array and return array INT's factorial
+        With this module, you can generate a random Array and return the array INT's factorial
 
         examle:
             import arrmov as arr
@@ -441,11 +484,9 @@ def IntToArrFactorialRand(fr: int, to: int):
         Output:
             [24, 6, 6, 6, 24, 6, 2, 24, 6, 6]
 
-        """
-    if fr == 0:
-        raise NoZeroEntry("Invaid Entry: 0")
-    else:
-        pass
+    """
+
+    ToBigFrom(fr, to)
 
     num = ''
 
@@ -482,7 +523,8 @@ def IntSum(num: int):
             21
 
         4 + 3 + 9 + 5 = 21
-        """
+    """
+
     NumError(num)
 
     split = [i for i in str(num)]
@@ -496,7 +538,7 @@ def IntSum(num: int):
 
 def ArrToInt(arr: list):
     """
-        With this module, you can conver your Array to INT
+        With this module, you can convert your Array to INT
 
         examle:
             import arrmov as arr
@@ -508,14 +550,9 @@ def ArrToInt(arr: list):
         Output:
             12345
 
-        """
+    """
+
     ListErr(arr)
-
-    if arr[0] == 0:
-        del arr[0]
-
-    else:
-        pass
 
     tmp = ''
 
@@ -526,7 +563,7 @@ def ArrToInt(arr: list):
 
 def ArrToIntSort(arr: list):
     """
-        With this module, you can conver your Array to INT and sort it
+        With this module, you can convert your Array to INT and sort it
 
         examle:
             import arrmov as arr
@@ -538,48 +575,106 @@ def ArrToIntSort(arr: list):
         Output:
             02379
 
-        """
+    """
+
     ListErr(arr)
 
     tmp = ''
-
-    arr.sort()
-
-    if arr[0] == 0:
-        del arr[0]
-
-    else:
-        pass
 
     for i in arr:
         tmp = tmp + str(i)
 
     return tmp
 
-def ArrToIntBiggest(arr: list):
+def ArrBiggestNum(arr: list):
     """
-        With this module, you can conver your Array to INT and return biggest INT
+        With this module, you can find the biggest num in your Array
 
         examle:
             import arrmov as arr
 
             array = [3, 2, 9, 0, 7]
-            print(arr.ArrToIntBiggest(array))
+            print(arr.ArrBiggestNum(array))
 
 
         Output:
             9
 
-        """
+    """
+
     ListErr(arr)
 
     arr.sort(reverse=True)
 
     return arr[0]
 
+def ArrSmallestNum(arr: list):
+    """
+        With this module, you can convert your Array to INT and return the biggest INT
+
+        examle:
+            import arrmov as arr
+
+            array = [3, 2, 9, 0, 7]
+            print(arr.ArrSmallestNum(array))
+
+
+        Output:
+            9
+
+    """
+
+    ListErr(arr)
+
+    arr.sort()
+
+    return arr[0]
+
+def ArrNumCount(arr: list, num: int):
+    """
+        With this module, you can count in your Array your number
+
+        examle:
+            import arrmov as arr
+
+            array = [3, 2, 9, 0, 7, 2, 2]
+            print(arr.ArrNumCount(array, 2))
+
+
+        Output:
+            3
+
+    """
+
+    return arr.count(num)
+
+def RandomArr(numlen: int, fr: int, to: int):
+    """
+        With this module, you can generate a random Array, in the len of your first written num
+
+        examle:
+            import arrmov as arr
+
+            print(arr.RandomArr(5, 1, 10))
+
+
+        Output:
+            [5, 2, 6, 1, 4]
+
+    """
+
+    ToBigFrom(fr, to)
+
+    arr = []
+
+    for i in range(numlen):
+        arr.append(rd.randint(fr, to))
+
+    return arr
+
 def Converter(num):
     """
-        With this module, you can convert your INT to Array or on the contrary, it doesn't matter
+        With this module, you can convert your INT to Array, or on the contrary, it doesn't matter
 
         examle:
             import arrmov as arr
@@ -594,7 +689,8 @@ def Converter(num):
         Output:
             02379
 
-        """
+    """
+
     if type(num) == list:
         return ArrToInt(num)
 
@@ -604,9 +700,11 @@ def Converter(num):
     else:
         raise ModuleSetError(num)
 
+    return 0
+
 def Biggest(num):
     """
-        With this module, you can conver your INT num to Array
+        With this module, you can convert your INT num to Array
 
         examle:
             import arrmov as arr
@@ -618,12 +716,15 @@ def Biggest(num):
         Output:
             [4, 3, 9, 5]
 
-        """
+    """
+
     if type(num) == list:
-        return ArrToIntBiggest(num)
+        return ArrBiggestNum(num)
 
     elif type(num) == int:
-        return IntToArrBiggest(num)
+        return IntBiggestNum(num)
 
     else:
         raise ModuleSetError(num)
+
+    return 0
