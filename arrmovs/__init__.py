@@ -1,7 +1,7 @@
 """
 This is a module, that can help you convert your INT num into an Array (and on the contrary)
 
-There are 20 modules (main)
+There are 22 modules (main)
 
 Enjoy
 
@@ -13,24 +13,24 @@ StackOverFlow: https://stackoverflow.com/users/19145314/kukushaa
 
 Telegram: @raigetsu
 ----------------------------------------------------------------------------------------------
-0.0.2 Version Changes:
+0.0.3 Version Changes:
 
 TecnicalImprovements():
-    If your Array starts with more than one zero and you will put it into a module, the first zeroes will automatically be deleted
+    0
 
 ModuleChangeName():
-
-    1. ArrToIntBiggest —> ArrBiggestNum
-    2. ArrToIntSmall —> ArrSmallestNum
-    3. ArrToIntCount --> ArrNumCount
-
-    4. IntToArrYourNum --> IntNumCount
-    5. IntToArrBiggest —> IntBiggestNum
-    6. IntToArrSmallest —> IntSmallestNum
+    0
 
 NewModules():
-    1. ArrNumCount() --> count in your Array, your number
-    2. RandomArr() --> Generate's random Array, in len of your first written num
+    1. __version__() --> print's version of your arrmovs
+    
+    2. help() --> Help menu
+
+    3. StrToArr() --> You can return only numbers with an array from a text -->
+    and you can choose what kind of type it can be (int or float)
+
+    4. StrToArrFromFile() --> You can return only numbers with an array from a file text -->
+    and you can choose what kind of type it can be (int or float)
 
 ----------------------------------------------------------------------------------------------
 NIKA BERIDZE 2022®
@@ -42,6 +42,7 @@ BATUMI®
 #Importing some modules
 import random as rd
 import math
+import re
 
 #----------------------------------------------------------------------------------------------
 
@@ -100,6 +101,10 @@ def ModuleSetError(value):
     raise ModuleSetError("Only list or INT")
 
 #----------------------------------------------------------------------------------------------
+
+#version Case
+
+version = '0.0.3'
 
 #Main modules
 
@@ -161,7 +166,7 @@ def IntToArrSorted(num: int):
 
 def IntToArrSortedReverse(num: int):
     """
-        With this module, you can convert your INT num to Array and Sort it Reverse.
+        This module can convert your INT num to Array and Sort it Reverse.
 
         examle:
             import arrmov as arr
@@ -190,7 +195,7 @@ def IntToArrSortedReverse(num: int):
 
 def IntToArrOdd(num: int):
     """
-        With this module, you can convert your INT num to Array and return only ODD nums.
+        This module can convert your INT num to Array and return only ODD nums.
 
         examle:
             import arrmov as arr
@@ -610,7 +615,7 @@ def ArrBiggestNum(arr: list):
 
 def ArrSmallestNum(arr: list):
     """
-        With this module, you can convert your Array to INT and return the biggest INT
+        With this module, you can convert your Array to INT and return the most significant INT
 
         examle:
             import arrmov as arr
@@ -672,6 +677,89 @@ def RandomArr(numlen: int, fr: int, to: int):
 
     return arr
 
+def StrToArr(text: list, value_enter: str):
+    """
+        With this module, you can read only numbers with an array from a text
+        value_enter --> with this value, you can choose what kinds of type of numbers you want (int or float)
+
+        examle:
+            import arrmov as arr
+
+            print(arr.StrToArr("This Is my 24 and 25.0 text"))
+
+        Output:
+            [24, 25]
+
+    """
+
+    value = 0
+
+    if value_enter.lower() == "None":
+        value = 0
+
+    elif value_enter.lower() == "int":
+        value = 0
+
+    elif value_enter.lower() == "float":
+        value = 0.0
+    
+    else:
+        raise ValueError("Invalid value!")
+
+    type_value = type(value)
+
+    arr = []
+    
+    for i in re.findall(r'-?\d+\.?\d*', text):
+        arr.append(type_value(float(i)))
+
+    return arr
+
+def StrToArrFromFile(filename: str, value_enter: str):
+    """
+        With this module, you can return only numbers with an array from a file text
+        value_enter --> with this value, you can choose what kinds of type of numbers you want (int or float)
+
+        examle:
+            import arrmov as arr
+
+            print(arr.StrToArrFromFile("myfile.txt", "int"))
+
+        Output:
+            [24, 25]
+
+    """
+
+    value = 0
+
+    if value_enter.lower() == "None":
+        value = 0
+
+    elif value_enter.lower() == "int":
+        value = 0
+
+    elif value_enter.lower() == "float":
+        value = 0.0
+    
+    else:
+        raise ValueError("Invalid value!")
+    
+    type_value = type(value)
+
+    try:
+        with open(filename, 'r') as file:
+            text = file.read()
+
+    except FileNotFoundError:
+        raise FileNotFoundError("Sorry, but file can't finded")
+        
+    arr = []
+
+    for i in re.findall(r'-?\d+\.?\d*', text):
+        arr.append(type_value(float(i)))
+
+    return arr
+
 def Converter(num):
     """
         With this module, you can convert your INT to Array, or on the contrary, it doesn't matter
@@ -728,3 +816,16 @@ def Biggest(num):
         raise ModuleSetError(num)
 
     return 0
+
+def help():
+    text = "-----HELP MENU-----\n" \
+            "\n" \
+            "If you want to see all modules, CTRL/Command + Left Click on 'arrmovs', which is on (import arrmovs)\n"\
+            "With this module, you can convert your INT to Array or on the contrary\n"\
+            "For better information, visit our GITHUB repository: https://github.com/Kukushaa/arrmovs/blob/main/arrmovs/__init__.py \n"\
+            "\n-----END OF HELP-----"
+
+    return text
+
+def __version__():
+    return f'Version of arrmovs: {version}'
