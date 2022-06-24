@@ -1,0 +1,16 @@
+TecnicalImprovements():
+	If your Array starts with more than one zero and you will put it into a module, the first zeroes will automatically be deleted
+
+ModuleChangeName():
+
+	1. ArrToIntBiggest —> ArrBiggestNum
+	2. ArrToIntSmall —> ArrSmallesttNum
+	3. ArrToIntCount --> ArrNumCount
+
+    	4. IntToArrYourNum --> IntNumCount
+    	5. IntToArrBiggest —> IntBiggestNum
+    	6. IntToArrSmallest —> IntSmallestNum
+
+NewModules():
+    	1. ArrNumCount() --> count in your Array, your number
+    	2. RandomArr() --> Generate's random Array, in len of your first written num

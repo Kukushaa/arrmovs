@@ -1,0 +1,16 @@
+TecnicalImprovements():
+    0
+
+ModuleChangeName():
+    0
+
+NewModules():
+    1. __version__() --> print's version of your arrmovs
+    
+    2. help() --> Help menu
+
+    3. StrToArr() --> You can return only numbers with an array from a text -->
+    and you can choose what kind of type it can be (int or float)
+
+    4. StrToArrFromFile() --> You can return only numbers with an array from a file text -->
+    and you can choose what kind of type it can be (int or float)
